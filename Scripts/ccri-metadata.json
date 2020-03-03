@@ -1,0 +1,1345 @@
+{
+    "resourceType": "CapabilityStatement",
+    "status": "active",
+    "publisher": "NHS Digital",
+    "kind": "instance",
+    "software": {
+        "name": "Care Connect RI FHIR Server",
+        "version": "3.7"
+    },
+    "implementation": {
+        "description": "Care Connect API (unsecured)",
+        "url": "https://data.developer.nhs.uk/ccri-fhir/STU3"
+    },
+    "fhirVersion": "3.0.1",
+    "acceptUnknown": "extensions",
+    "format": [
+        "application/fhir+xml",
+        "application/fhir+json"
+    ],
+    "implementationGuide": [
+        "https://nhsconnect.github.io/CareConnectAPI/"
+    ],
+    "rest": [
+        {
+            "mode": "server",
+            "resource": [
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 129
+                        }
+                    ],
+                    "type": "AllergyIntolerance",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-AllergyIntolerance-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "read"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "clinical-status",
+                            "type": "token",
+                            "documentation": "active | inactive | resolved"
+                        },
+                        {
+                            "name": "date",
+                            "type": "date",
+                            "documentation": "Date record was believed accurate"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "Who the sensitivity is for"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 0
+                        }
+                    ],
+                    "type": "Appointment",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "appointment-type",
+                            "type": "string",
+                            "documentation": "The style of appointment or patient that has been booked in the slot (not service type)"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "An Identifier of the Appointment"
+                        },
+                        {
+                            "name": "status",
+                            "type": "string",
+                            "documentation": "The overall status of the appointment"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 41
+                        }
+                    ],
+                    "type": "Binary",
+                    "profile": {
+                        "reference": "http://hl7.org/fhir/StructureDefinition/Binary"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 0
+                        }
+                    ],
+                    "type": "Bundle",
+                    "profile": {
+                        "reference": "http://hl7.org/fhir/StructureDefinition/Bundle"
+                    },
+                    "interaction": [
+                        {
+                            "code": "update"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "conditionalUpdate": true
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 1
+                        }
+                    ],
+                    "type": "CarePlan",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "searchInclude": [
+                        "*",
+                        "CarePlan:care-team",
+                        "CarePlan:condition",
+                        "CarePlan:goal",
+                        "CarePlan:patient",
+                        "CarePlan:supporting-information"
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "category",
+                            "type": "token",
+                            "documentation": "Type of plan"
+                        },
+                        {
+                            "name": "date",
+                            "type": "date",
+                            "documentation": "Time period plan covers"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "External Ids for this plan"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "Who care plan is for"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 102
+                        }
+                    ],
+                    "type": "Condition",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Condition-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "asserted-date",
+                            "type": "date",
+                            "documentation": "Date record was believed accurate"
+                        },
+                        {
+                            "name": "category",
+                            "type": "token",
+                            "documentation": "The category of the condition"
+                        },
+                        {
+                            "name": "clinical-status",
+                            "type": "token",
+                            "documentation": "The clinical status of the condition"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "Who has the condition?"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 41
+                        }
+                    ],
+                    "type": "DocumentReference",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/GPConnect-DocumentReference-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "created",
+                            "type": "date",
+                            "documentation": "Document creation time"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "Who/what is the subject of the document"
+                        },
+                        {
+                            "name": "period",
+                            "type": "date",
+                            "documentation": "Time of service that is being documented"
+                        },
+                        {
+                            "name": "setting",
+                            "type": "token",
+                            "documentation": "Additional details about where the content was created (e.g. clinical specialty)"
+                        },
+                        {
+                            "name": "type",
+                            "type": "token",
+                            "documentation": "Kind of document (LOINC if possible)"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 751
+                        }
+                    ],
+                    "type": "Encounter",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Encounter-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchInclude": [
+                        "*",
+                        "Composition:encounter",
+                        "Condition:context",
+                        "DocumentReference:context",
+                        "Encounter:location",
+                        "Encounter:part-of",
+                        "Encounter:participant",
+                        "Encounter:patient",
+                        "Encounter:service-provider",
+                        "Immunization:encounter",
+                        "MedicationAdministration:context",
+                        "MedicationDispense:context",
+                        "MedicationRequest:context",
+                        "Observation:context",
+                        "Procedure:context",
+                        "ReferralRequest:encounter"
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "date",
+                            "type": "date",
+                            "documentation": "A date within the period the Encounter lasted"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "The patient ro group present at the encounter"
+                        },
+                        {
+                            "name": "status",
+                            "type": "token",
+                            "documentation": "planned | arrived | triaged | in-progress | onleave | finished | cancelled +"
+                        },
+                        {
+                            "name": "type",
+                            "type": "token",
+                            "documentation": "Specific type of encounter"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 2
+                        }
+                    ],
+                    "type": "EpisodeOfCare",
+                    "profile": {
+                        "reference": "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "Business Identifier(s) relevant for this EpisodeOfCare"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "The patient who is the focus of this episode of care"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 2
+                        }
+                    ],
+                    "type": "Flag",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Flag-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "read"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "Business identifier"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "The identity of a subject to list flags for"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 4
+                        }
+                    ],
+                    "type": "HealthcareService",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchInclude": [
+                        "*",
+                        "Slot"
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "External identifiers for this item"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "documentation": "A portion of the Healthcare service name"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 57
+                        }
+                    ],
+                    "type": "Immunization",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Immunization-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "date",
+                            "type": "date",
+                            "documentation": "Vaccination  (non)-Administration Date"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "The patient for the vaccination record"
+                        },
+                        {
+                            "name": "status",
+                            "type": "token",
+                            "documentation": "Immunization event status"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 25
+                        }
+                    ],
+                    "type": "Location",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Location-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "update"
+                        },
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "conditionalUpdate": true,
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "address-postalcode",
+                            "type": "string",
+                            "documentation": "A postal code specified in an address"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "An identifier for the location"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 26
+                        }
+                    ],
+                    "type": "Medication",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Medication-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "read"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "code",
+                            "type": "token",
+                            "documentation": "Codes that identify this medication"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 5
+                        }
+                    ],
+                    "type": "MedicationAdministration",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "code",
+                            "type": "token",
+                            "documentation": "Return administrations of this medication code"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "Return administrations with this external identifier"
+                        },
+                        {
+                            "name": "medication",
+                            "type": "reference",
+                            "documentation": "Return administrations of this medication resource"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "The identity of a patient to list administrations  for"
+                        },
+                        {
+                            "name": "status",
+                            "type": "token",
+                            "documentation": "MedicationAdministration event status (for example one of active/paused/completed/nullified)"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 12
+                        }
+                    ],
+                    "type": "MedicationDispense",
+                    "interaction": [
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "read"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "code",
+                            "type": "token",
+                            "documentation": "Return dispenses of this medicine code"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "Return dispenses with this external identifier"
+                        },
+                        {
+                            "name": "medication",
+                            "type": "reference",
+                            "documentation": "Return dispenses of this medicine resource"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "The identity of a patient to list dispenses  for"
+                        },
+                        {
+                            "name": "status",
+                            "type": "token",
+                            "documentation": "Return dispenses with a specified dispense status"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 12
+                        }
+                    ],
+                    "type": "MedicationRequest",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-MedicationRequest-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "authoredon",
+                            "type": "date",
+                            "documentation": "Return prescriptions written on this date"
+                        },
+                        {
+                            "name": "medication",
+                            "type": "reference",
+                            "documentation": "Return prescriptions of this medication reference"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "Returns prescriptions for a specific patient"
+                        },
+                        {
+                            "name": "status",
+                            "type": "token",
+                            "documentation": "Status of the prescription"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 38
+                        }
+                    ],
+                    "type": "MedicationStatement",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-MedicationStatement-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "effective",
+                            "type": "date",
+                            "documentation": "Date when patient was taking (or not taking) the medication"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "Returns statements for a specific patient."
+                        },
+                        {
+                            "name": "status",
+                            "type": "token",
+                            "documentation": "Return statements that match the given status"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 10541
+                        }
+                    ],
+                    "type": "Observation",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Observation-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "update"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "conditionalUpdate": true,
+                    "searchInclude": [
+                        "*",
+                        "Observation.related"
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "category",
+                            "type": "token",
+                            "documentation": "The classification of the type of observation"
+                        },
+                        {
+                            "name": "code",
+                            "type": "token",
+                            "documentation": "The code of the observation type"
+                        },
+                        {
+                            "name": "date",
+                            "type": "date",
+                            "documentation": "Obtained date/time. If the obtained element is a period, a date that falls in the period"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "The subject that the observation is about (if patient)"
+                        },
+                        {
+                            "name": "subject",
+                            "type": "reference",
+                            "documentation": "The subject that the observation is about"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 281
+                        }
+                    ],
+                    "type": "Organization",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Organization-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "Any identifier for the organization (not the accreditation issuer's identifier)"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "documentation": "A portion of the organization's name or alias"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 197
+                        }
+                    ],
+                    "type": "Patient",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Patient-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "update"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "conditionalCreate": true,
+                    "conditionalUpdate": true,
+                    "searchInclude": [
+                        "*",
+                        "AllergyIntolerance:patient",
+                        "CarePlan:patient",
+                        "Condition:patient",
+                        "DocumentReference:patient",
+                        "Encounter:patient",
+                        "Flag:patient",
+                        "Immunization:patient",
+                        "MedicationStatement:patient",
+                        "Observation:patient",
+                        "Patient:general-practitioner",
+                        "Patient:organization",
+                        "Procedure:patient"
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "address-postalcode",
+                            "type": "string",
+                            "documentation": "A postalCode specified in an address"
+                        },
+                        {
+                            "name": "birthdate",
+                            "type": "date",
+                            "documentation": "The patient's date of birth"
+                        },
+                        {
+                            "name": "email",
+                            "type": "string",
+                            "documentation": "A value in an email contact"
+                        },
+                        {
+                            "name": "family",
+                            "type": "string",
+                            "documentation": "A portion of the family name of the patient"
+                        },
+                        {
+                            "name": "gender",
+                            "type": "string",
+                            "documentation": "Gender of the patient"
+                        },
+                        {
+                            "name": "given",
+                            "type": "string",
+                            "documentation": "A portion of the given name of the patient"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "A patient identifier"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "documentation": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+                        },
+                        {
+                            "name": "phone",
+                            "type": "string",
+                            "documentation": "A value in a phone contact"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 3553
+                        }
+                    ],
+                    "type": "Practitioner",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Practitioner-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "address-postalcode",
+                            "type": "string",
+                            "documentation": "A postalCode specified in an address"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "A practitioner's Identifier"
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "documentation": "A server defined search that may match any of the string fields in the HumanName, including family, give, prefix, suffix, suffix, and/or text"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 3510
+                        }
+                    ],
+                    "type": "PractitionerRole",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-PractitionerRole-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "A practitioner's Identifier"
+                        },
+                        {
+                            "name": "organization",
+                            "type": "reference",
+                            "documentation": "The identity of the organization the practitioner represents / acts on behalf of"
+                        },
+                        {
+                            "name": "practitioner",
+                            "type": "reference",
+                            "documentation": "Practitioner that is able to provide the defined services for the organation"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 44
+                        }
+                    ],
+                    "type": "Procedure",
+                    "profile": {
+                        "reference": "https://fhir.hl7.org.uk/STU3/StructureDefinition/CareConnect-Procedure-1"
+                    },
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "date",
+                            "type": "date",
+                            "documentation": "Date/Period the procedure was performed"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "Search by subject - a patient"
+                        },
+                        {
+                            "name": "subject",
+                            "type": "reference",
+                            "documentation": "Search by subject"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 3
+                        }
+                    ],
+                    "type": "Questionnaire",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "code",
+                            "type": "token",
+                            "documentation": "A code that corresponds to one of its items in the questionnaire"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "External identifier for the questionnaire"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 5
+                        }
+                    ],
+                    "type": "QuestionnaireResponse",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "The unique identifier for the questionnaire response"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "The patient that is the subject of the questionnaire response"
+                        },
+                        {
+                            "name": "questionnaire",
+                            "type": "reference",
+                            "documentation": "The questionnaire the answers are provided for"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 3
+                        }
+                    ],
+                    "type": "ReferralRequest",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "update"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "conditionalUpdate": true,
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "Business identifier"
+                        },
+                        {
+                            "name": "patient",
+                            "type": "reference",
+                            "documentation": "Who the referral is about"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 0
+                        }
+                    ],
+                    "type": "Schedule",
+                    "interaction": [
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "string",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "actor",
+                            "type": "string",
+                            "documentation": "The individual(HealthcareService, Practitioner, Location, ...) to find a Schedule for"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "A Schedule Identifier"
+                        },
+                        {
+                            "name": "type",
+                            "type": "token",
+                            "documentation": "The type of appointments that can be booked into associated slot(s)"
+                        }
+                    ]
+                },
+                {
+                    "extension": [
+                        {
+                            "url": "http://hl7api.sourceforge.net/hapi-fhir/res/extdefs.html#resourceCount",
+                            "valueDecimal": 4
+                        }
+                    ],
+                    "type": "Slot",
+                    "interaction": [
+                        {
+                            "code": "search-type"
+                        },
+                        {
+                            "code": "read"
+                        },
+                        {
+                            "code": "create"
+                        }
+                    ],
+                    "searchInclude": [
+                        "Schedule:actor:service",
+                        "Slot:schedule"
+                    ],
+                    "searchParam": [
+                        {
+                            "name": "_id",
+                            "type": "token",
+                            "documentation": "The ID of the resource"
+                        },
+                        {
+                            "name": "identifier",
+                            "type": "token",
+                            "documentation": "A Slot Identifier"
+                        },
+                        {
+                            "name": "schedule",
+                            "type": "reference",
+                            "documentation": "The Schedule Resource that we are seeking a slot within"
+                        },
+                        {
+                            "name": "start",
+                            "type": "date",
+                            "documentation": "Appointment date/time."
+                        },
+                        {
+                            "name": "status",
+                            "type": "string",
+                            "documentation": "The free/busy status of the appointment"
+                        }
+                    ]
+                }
+            ],
+            "operation": [
+                {
+                    "name": "document",
+                    "definition": {
+                        "reference": "OperationDefinition/CarePlan-i-document"
+                    }
+                },
+                {
+                    "name": "getrecord3",
+                    "definition": {
+                        "reference": "OperationDefinition/Patient--getrecord3"
+                    }
+                },
+                {
+                    "name": "getrecord4",
+                    "definition": {
+                        "reference": "OperationDefinition/Patient--getrecord4"
+                    }
+                }
+            ]
+        }
+    ]
+}

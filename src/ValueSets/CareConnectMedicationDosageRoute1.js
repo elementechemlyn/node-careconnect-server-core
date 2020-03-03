@@ -1,0 +1,8 @@
+// This file was auto generated from the url
+// https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-MedicationDosageRoute-1
+const CareConnectBaseValueSet = require('../BaseClasses/CareConnect-BaseValueSet')
+let vsJsn = { 'description': "A code from the SNOMED Clinical Terminology UK coding system that describes the e-Prescribing route of administration. Any code from the SNOMED CT UK 'NHS e-Prescribing route of administration subset' with subset original id 30201000001137; the corresponding SNOMED CT UK Refset FSN is 'ePrescribing route of administration simple reference set (foundation metadata concept)' with Refset Id 999000051000001100.", 'status': 'draft', 'compose': { 'include': [{ 'system': 'http://snomed.info/sct', 'filter': [{ 'property': 'concept', 'op': 'in', 'value': '999000051000001100' }] }] }, 'resourceType': 'ValueSet', 'copyright': 'This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.', 'id': 'CareConnect-MedicationDosageRoute-1', 'name': 'Care Connect Medication Dosage Route', 'url': 'https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-MedicationDosageRoute-1', 'version': '1.1.0', 'publisher': 'HL7 UK', 'date': '2018-11-01T00:00:00+00:00' }
+const CareConnectMedicationDosageRoute1 = new CareConnectBaseValueSet(vsJsn)
+CareConnectMedicationDosageRoute1.code_systems = []
+CareConnectMedicationDosageRoute1.needs_snomed = true
+module.exports = CareConnectMedicationDosageRoute1

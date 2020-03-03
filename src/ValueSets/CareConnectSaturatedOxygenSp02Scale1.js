@@ -1,0 +1,8 @@
+// This file was auto generated from the url
+// https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-SaturatedOxygenSp02Scale-1
+const CareConnectBaseValueSet = require('../BaseClasses/CareConnect-BaseValueSet')
+let vsJsn = { 'description': 'A code from the SNOMED Clinical Terminology UK coding system which describes whether a saturated oxygen (Sp02) Scale of 1 or 2 should be used.  SpO2 Scale 2 is used in patients with hypercapnic respiratory failure (usually due to COPD)', 'status': 'draft', 'compose': { 'include': [{ 'system': 'http://snomed.info/sct', 'filter': [{ 'property': 'constraint', 'op': '=', 'value': '(1104311000000102 |Royal College of Physicians National Early Warning Score 2 - oxygen saturation scale 1 score| OR 1104321000000108 |Royal College of Physicians National Early Warning Score 2 - oxygen saturation scale 2 score|)' }] }] }, 'resourceType': 'ValueSet', 'copyright': 'This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.', 'id': 'CareConnect-SaturatedOxygenSp02Scale-1', 'name': 'Care Connect Saturated Oxygen Sp02 Scale', 'url': 'https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-SaturatedOxygenSp02Scale-1', 'version': '1.0.0', 'publisher': 'HL7 UK', 'date': '2018-10-19T12:48:00+00:00' }
+const CareConnectSaturatedOxygenSp02Scale1 = new CareConnectBaseValueSet(vsJsn)
+CareConnectSaturatedOxygenSp02Scale1.code_systems = []
+CareConnectSaturatedOxygenSp02Scale1.needs_snomed = true
+module.exports = CareConnectSaturatedOxygenSp02Scale1

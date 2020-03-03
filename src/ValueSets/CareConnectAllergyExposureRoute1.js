@@ -1,0 +1,8 @@
+// This file was auto generated from the url
+// https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyExposureRoute-1
+const CareConnectBaseValueSet = require('../BaseClasses/CareConnect-BaseValueSet')
+let vsJsn = { 'description': "A code from the SNOMED Clinical Terminology UK coding system that describes the e-Prescribing route of administration. Any code from the SNOMED CT UK 'NHS e-Prescribing route of administration subset' with subset original id 30201000001137; the corresponding SNOMED CT UK Refset FSN is 'ePrescribing route of administration simple reference set (foundation metadata concept)' with Refset Id 999000051000001100.", 'status': 'draft', 'compose': { 'include': [{ 'system': 'http://snomed.info/sct', 'filter': [{ 'property': 'constraint', 'op': '=', 'value': '^999000051000001100 |ePrescribing route of administration simple reference set|' }] }] }, 'resourceType': 'ValueSet', 'copyright': 'This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement.', 'id': 'CareConnect-AllergyExposureRoute-1', 'name': 'Care Connect Allergy Exposure Route', 'url': 'https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-AllergyExposureRoute-1', 'version': '1.1.0', 'publisher': 'HL7 UK', 'date': '2018-11-14T00:00:00+00:00' }
+const CareConnectAllergyExposureRoute1 = new CareConnectBaseValueSet(vsJsn)
+CareConnectAllergyExposureRoute1.code_systems = []
+CareConnectAllergyExposureRoute1.needs_snomed = true
+module.exports = CareConnectAllergyExposureRoute1

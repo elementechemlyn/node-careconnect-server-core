@@ -1,0 +1,29 @@
+{
+  "name": "node-careconnect-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest",
+    "odssample": "node ./samples/ods_proxy/index.js",
+    "bannersample": "node ./samples/simple_banner/index.js"
+  },
+  "keywords": [],
+  "author": "Elementech Emlyn",
+  "license": "MIT",
+  "devDependencies": {
+    "ajv-pack": "^0.3.1",
+    "eslint": "^5.11.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "@asymmetrik/node-fhir-server-core": "^2.0.4",
+    "ajv": "^6.6.2"
+  }
+}

@@ -1,0 +1,3 @@
+[submodule "Scripts/CareConnectBuilder"]
+	path = Scripts/CareConnectBuilder
+	url = https://github.com/elementechemlyn/CareConnectBuilder.git

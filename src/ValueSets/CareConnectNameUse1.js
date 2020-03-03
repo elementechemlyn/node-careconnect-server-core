@@ -1,0 +1,10 @@
+// This file was auto generated from the url
+// https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NameUse-1
+const nameuseCodeSystem = require('../../src/CodeSystems/nameuse.js')
+const CareConnectBaseValueSet = require('../BaseClasses/CareConnect-BaseValueSet')
+let vsJsn = { 'status': 'draft', 'resourceType': 'ValueSet', 'id': 'CareConnect-NameUse-1', 'name': 'NameUse', 'url': 'https://fhir.hl7.org.uk/STU3/ValueSet/CareConnect-NameUse-1', 'copyright': 'Copyright © HL7.org 2011+', 'publisher': 'HL7 (FHIR Project)', 'identifier': [{ 'value': 'urn:oid:2.16.840.1.113883.4.642.3.58', 'system': 'urn:ietf:rfc:3986' }], 'description': 'The use of a human name', 'extension': [{ 'url': 'http://hl7.org/fhir/StructureDefinition/valueset-map', 'valueReference': { 'reference': 'https://fhir.hl7.org.uk/STU3/ConceptMap/CareConnect-PersonNameType-1' } }, { 'valueUri': 'http://hl7.org/fhir/ValueSet/name-use', 'url': 'http://hl7.org/fhir/StructureDefinition/valueset-sourceReference' }, { 'valueCode': 'fhir', 'url': 'http://hl7.org/fhir/StructureDefinition/structuredefinition-wg' }, { 'url': 'http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm', 'valueInteger': 0 }, { 'valueString': 'Informative', 'url': 'http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status' }], 'version': '3.0.1', 'compose': { 'include': [{ 'concept': [{ 'display': 'Usual', 'code': 'usual' }, { 'display': 'Official', 'code': 'official' }, { 'display': 'Temp', 'code': 'temp' }, { 'display': 'Nickname', 'code': 'nickname' }, { 'display': 'Anonymous', 'code': 'anonymous' }, { 'display': 'Old', 'code': 'old' }, { 'display': 'Name changed for Marraige', 'code': 'maiden' }], 'system': 'http://hl7.org/fhir/name-use' }] }, 'date': '2017-04-19T07:44:47+10:00', 'contact': [{ 'telecom': [{ 'value': 'http://hl7.org/fhir', 'system': 'url' }] }] }
+const CareConnectNameUse1 = new CareConnectBaseValueSet(vsJsn)
+CareConnectNameUse1.code_systems = []
+CareConnectNameUse1.needs_snomed = false
+CareConnectNameUse1.code_systems.push(nameuseCodeSystem)
+module.exports = CareConnectNameUse1
