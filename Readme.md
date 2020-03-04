@@ -19,12 +19,12 @@ The library extends the core library to include features specific to the Care Co
 
 The Care Connect library can be installed using npm directly from Git:  
 
-`npm install https://ml1n@bitbucket.org/ml1n/node-careconnect-server-core.git`  
+`npm install https://github.com/elementechemlyn/node-careconnect-server-core.git`  
 
 Or by cloning the repository and running npm install:  
 
 ```
-git clone https://ml1n@bitbucket.org/ml1n/node-careconnect-server-core.git  
+git clone https://github.com/elementechemlyn/node-careconnect-server-core.git  
 cd node-careconnect-server-core  
 npm --save install
 ```
