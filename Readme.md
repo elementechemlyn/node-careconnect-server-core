@@ -36,7 +36,7 @@ Tests can be run using the command:
 `npm test`
 
 ## Care Connect specific classes
-The classes are not manually coded but are built from the structure differentials using the Python scripts in Scripts/BuildJS.
+The classes are not manually coded but are built from the structure differentials using the Python scripts in Scripts/CareConnectBuilder.
 
 All STU3 Codesets, Valuesets, Extensions and Profiles listed at:
 
